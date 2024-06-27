@@ -36,7 +36,20 @@ async function getAllProjectDetails() {
 }
 
   
-  
+  async function getbyid(id) {
+    try {
+        console.log('Inside getAllProjectDetails Dao');
+        
+        // Fetch data and sort by ranking in ascending order
+        const data = await MensRanking.findById(id);
+        
+        console.log('Fetched user details:', data);
+        return { data };
+    } catch (err) {
+        console.error('Error in getbyidDetails dao:', err);
+        throw err;
+    }
+  }
 //   router.get("/mens/:id", async (req, res) => {
 //     try {
 //       const _id=req.params.id;
@@ -94,5 +107,6 @@ console.log(data);
     addProjectDetails,
     updateProjectDetails,
     deleteProjectDetails,
-    getAllProjectDetails
+    getAllProjectDetails,
+    getbyid
 };

@@ -86,10 +86,27 @@ function addProjectDetails(req, res) {
     });
 }
 
+function getbyid(req, res) {
+    console.log('Inside deleteProjectDetails controller');
+
+    var id = req.params.id;
+
+    projectsService.getbyid(id).then(function(result) {
+        res.status(result.statusCode).send(result);
+    }).catch(function (err) {
+        console.log('Error in getbyid controller', err);
+        res.status(500).send({
+            message: 'Something went wrong!',
+            error: true
+        });
+    });
+}
+
 
 module.exports = {
     addProjectDetails,
     getAllProjectDetails,
     updateProjectDetails,
     deleteProjectDetails,
+    getbyid
 }

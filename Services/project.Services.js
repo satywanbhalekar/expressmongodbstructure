@@ -137,3 +137,33 @@ exports.deleteProjectDetails = async function (id) {
     }
 };
 
+
+exports.getbyid = async function (id) {
+    try {
+        const result = await projectsDao.getbyid(id);
+        console.log(result);
+
+        if (result.error) {
+            return {
+                message: 'An error occurred while deleting project details',
+                error: true,
+                errorMessage: result.error.message,
+                statusCode: 400
+            };
+        } else {
+            return {
+                message: 'success',
+                error: false,
+                statusCode: 200,
+                result: { data: result.data }
+            };
+        }
+    } catch (err) {
+        console.error('Error in getbyid service', err);
+        return {
+            message: 'Something went wrong!',
+            error: true,
+            statusCode: 500
+        };
+    }
+};
