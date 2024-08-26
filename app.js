@@ -3,7 +3,7 @@ require("./db/conn")
 const cors = require('cors');
 const projectsRoute = require('./routers/men');
 // app.js
-const userRoutes = require('./expressAuthJwt/routes/userRoutes');
+const userRoutes = require('./ExpressAuthJwt/routes/userRoutes');
 const app = express()
 const port = process.env.PORT|| 3000
 
