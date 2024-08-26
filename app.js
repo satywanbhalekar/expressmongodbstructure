@@ -5,7 +5,7 @@ const projectsRoute = require('./routers/men');
 // app.js
 const userRoutes = require('./ExpressAuthJwt/routes/userRoutes');
 const app = express()
-const port = process.env.PORT|| 3000
+const port = process.env.PORT|| 30001
 
 
 
